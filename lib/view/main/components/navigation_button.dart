@@ -13,10 +13,8 @@ class NavigationTextButton extends StatelessWidget {
         onPressed: onTap,
         child: Text(
           text,
-          style: Theme.of(context)
-              .textTheme
-              .labelMedium!
-              .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
+          style: Theme.of(context).textTheme.labelMedium!.copyWith(
+              fontWeight: FontWeight.normal, color: Colors.white, fontSize: 16),
         ));
   }
 }

@@ -23,8 +23,8 @@ class _BlogGridState extends State<BlogGrid> {
 
   @override
   Widget build(BuildContext context) {
-    final int itemsPerPage = Responsive.isLargeMobile(context)
-        ? 5
+    final int itemsPerPage = Responsive.isMobile(context)
+        ? 4
         : 4; // Her sayfada kaç öğe görüneceğini belirtin
     return Column(
       children: [

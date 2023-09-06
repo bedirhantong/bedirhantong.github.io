@@ -41,18 +41,18 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
-  late SpinKitPouringHourGlassRefined spinkit;
+  late SpinKitSpinningLines spinkit;
 
   @override
   void initState() {
     super.initState();
 
-    spinkit = const SpinKitPouringHourGlassRefined(
+    spinkit = const SpinKitSpinningLines(
       color: Colors.black,
       size: 50.0,
     );
 
-    Future.delayed(const Duration(seconds: 1), () async {
+    Future.delayed(const Duration(seconds: 3), () async {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => const HomePage()));
     });
@@ -63,20 +63,7 @@ class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(128, 139, 175, 1.0),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            spinkit,
-            //Image.asset('assets/images/flutterlogo.png', width: 40, height: 40,),
-            const SizedBox(
-              height: 25,
-            ),
-            Text(
-              "Loading...",
-              style: GoogleFonts.nunito(fontSize: 20, color: Colors.black),
-            ),
-          ],
-        ),
+        child: spinkit,
       ),
     );
   }
