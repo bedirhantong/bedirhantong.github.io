@@ -140,8 +140,8 @@ class _BlogGridState extends State<BlogGrid> {
                   );
                 },
                 child: Container(
-                  width: 10.0,
-                  height: 10.0,
+                  width: 12.0,
+                  height: 12.0,
                   margin: const EdgeInsets.symmetric(
                     horizontal: 4.0,
                   ),

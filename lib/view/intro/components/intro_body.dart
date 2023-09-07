@@ -22,8 +22,8 @@ class IntroBody extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               gradient: const LinearGradient(colors: [
-                Colors.black,
-                Colors.black,
+                Colors.deepPurple,
+                Colors.blueGrey,
               ]),
               boxShadow: const [
                 BoxShadow(
