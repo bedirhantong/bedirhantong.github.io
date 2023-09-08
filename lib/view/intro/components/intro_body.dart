@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../res/constants.dart';
 import '../../../viewmodel/responsive.dart';
+import 'combine_subtitle.dart';
 import 'description_text.dart';
 import 'headline_text.dart';
 

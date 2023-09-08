@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 
+import '../../../res/constants.dart';
+import '../../../theme/theme.dart';
 import '../../../viewmodel/controller.dart';
+import '../../../viewmodel/responsive.dart';
 import 'navigation_button.dart';
+import 'package:provider/provider.dart';
 
 class NavigationButtonList extends StatelessWidget {
   const NavigationButtonList({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return TweenAnimationBuilder(
       tween: Tween(begin: 0.0, end: 1.0),
       duration: const Duration(milliseconds: 200),
@@ -16,6 +23,9 @@ class NavigationButtonList extends StatelessWidget {
           scale: value,
           child: Row(
             children: [
+              // themeProvider.isDarkMode
+              //     ? Image.asset('assets/images/bdo_logo.png')
+              //     : Image.asset('assets/images/bdo_light.png'),
               NavigationTextButton(
                   onTap: () {
                     controller.animateToPage(0,
@@ -30,13 +40,13 @@ class NavigationButtonList extends StatelessWidget {
                         curve: Curves.easeIn);
                   },
                   text: 'Projects'),
-              // NavigationTextButton(
-              //     onTap: () {
-              //       controller.animateToPage(2,
-              //           duration: const Duration(milliseconds: 500),
-              //           curve: Curves.easeIn);
-              //     },
-              //     text: 'Experiences'),
+              NavigationTextButton(
+                  onTap: () {
+                    controller.animateToPage(2,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeIn);
+                  },
+                  text: 'Experiences'),
               NavigationTextButton(
                   onTap: () {
                     controller.animateToPage(2,
