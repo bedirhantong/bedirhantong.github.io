@@ -3,8 +3,8 @@
 |:-----------------------------------------:|
 | ![](assets/readme/screenshots/home_dark.png) |
 
-|                   home light                    |
+|                   projects light               |
 |:-----------------------------------------:|
-| ![](assets/readme/screenshots/home_light.png) |
+| ![](assets/readme/screenshots/projects.png) |
 
 
