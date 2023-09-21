@@ -1,7 +1,6 @@
 import 'package:bedirhantong_github_io/theme/theme.dart';
 import 'package:bedirhantong_github_io/view/home/home.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 
@@ -52,7 +51,7 @@ class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
       size: 50.0,
     );
 
-    Future.delayed(const Duration(seconds: 3), () async {
+    Future.delayed(const Duration(seconds: 1), () async {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => const HomePage()));
     });

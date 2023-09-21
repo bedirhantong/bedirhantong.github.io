@@ -1,37 +1,50 @@
 import 'package:bedirhantong_github_io/view/projects/components/project_info.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../model/project_model/project_model.dart';
 import '../../../res/constants.dart';
 import '../../../viewmodel/getx_controller/project_controller.dart';
+import '../../../viewmodel/responsive.dart';
 
 class ProjectGrid extends StatelessWidget {
   final int crossAxisCount;
   final double ratio;
 
-  ProjectGrid({super.key, this.crossAxisCount = 3, this.ratio = 1.3});
+  ProjectGrid({super.key, this.crossAxisCount = 3, this.ratio = 0.572});
 
   final controller = Get.put(ProjectController());
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.sizeOf(context);
+
     return GridView.builder(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 60),
       itemCount: projectList.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: crossAxisCount, childAspectRatio: ratio),
+        crossAxisCount: crossAxisCount,
+        childAspectRatio: Responsive.isLargeMobile(context)
+            ? size.aspectRatio * 0.98
+            : Responsive.isDesktop(context)
+                ? size.aspectRatio * 0.267
+                : Responsive.isTablet(context)
+                    ? size.aspectRatio * 0.58
+                    : Responsive.isMobile(context)
+                        ? 0.89
+                        : size.aspectRatio * 0.60,
+      ),
       itemBuilder: (context, index) {
         return Obx(
-          () => AnimatedContainer(
-            duration: const Duration(milliseconds: 100),
+          () => Container(
             margin: const EdgeInsets.symmetric(
                 vertical: defaultPadding, horizontal: defaultPadding),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               gradient: const LinearGradient(
                 colors: [
-                  Colors.deepPurple,
-                  Colors.blueGrey,
+                  Colors.transparent,
+                  Colors.transparent,
                 ],
               ),
               boxShadow: [

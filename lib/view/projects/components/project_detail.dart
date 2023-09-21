@@ -1,8 +1,8 @@
-import 'package:bedirhantong_github_io/view/projects/components/project_link.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../model/project_model/project_model.dart';
-import '../../../res/constants.dart';
 import '../../../viewmodel/responsive.dart';
 
 class ProjectDetail extends StatelessWidget {
@@ -17,49 +17,54 @@ class ProjectDetail extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Align(
-          alignment: Alignment.center,
-          child: Text(
-            projectList[index].name,
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall!
-                .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              projectList[index].name,
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.normal,
+                  fontSize: 18),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            IconButton(
+                onPressed: () {
+                  launchUrl(Uri.parse(projectList[index].link));
+                },
+                icon: SvgPicture.asset('assets/icons/github.svg')),
+          ],
         ),
-        Responsive.isMobile(context)
-            ? const SizedBox(
-                height: defaultPadding / 2,
+        Responsive.isLargeMobile(context)
+            ? SizedBox(
+                width: size.width * 0.6,
+                height: size.height * 0.6,
+                child: Image.asset(projectList[index].link),
               )
-            : const SizedBox(
-                height: defaultPadding,
-              ),
-        Text(
-          projectList[index].description,
-          style: const TextStyle(color: Colors.grey, height: 1.5),
-          maxLines: size.width > 700 && size.width < 750
-              ? 3
-              : size.width < 470
-                  ? 2
-                  : size.width > 600 && size.width < 700
-                      ? 6
-                      : size.width > 900 && size.width < 1060
-                          ? 6
-                          : 4,
-          overflow: TextOverflow.ellipsis,
-        ),
-        Responsive.isMobile(context)
-            ? const SizedBox(
-                height: defaultPadding / 2,
-              )
-            : const SizedBox(
-                height: defaultPadding,
-              ),
-        ProjectLinks(
-          index: index,
-        ),
+            : Responsive.isDesktop(context)
+                ? SizedBox(
+                    width: size.width * 0.2,
+                    height: size.height * 0.73,
+                    child: Image.asset(projectList[index].link),
+                  )
+                : Responsive.isMobile(context)
+                    ? SizedBox(
+                        width: size.width * 0.6,
+                        height: size.height * 0.6,
+                        child: Image.asset(projectList[index].link),
+                      )
+                    : Responsive.isTablet(context)
+                        ? SizedBox(
+                            width: size.width * 0.6,
+                            height: size.height * 0.6,
+                            child: Image.asset(projectList[index].link),
+                          )
+                        : SizedBox(
+                            width: size.width * 0.6,
+                            height: size.height * 0.6,
+                            child: Image.asset(projectList[index].link),
+                          )
       ],
     );
   }

@@ -28,11 +28,9 @@ class ProjectsView extends StatelessWidget {
             ],
           ),
         ),
-        width: double.infinity,
+        // width: double.infinity,
         padding: const EdgeInsets.symmetric(vertical: defaultPadding),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             if (Responsive.isLargeMobile(context))
               const SizedBox(

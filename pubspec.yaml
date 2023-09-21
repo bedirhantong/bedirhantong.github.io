@@ -57,5 +57,6 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/readme/screenshots/
     - assets/icons/
     - assets/gifs/

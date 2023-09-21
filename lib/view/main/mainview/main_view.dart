@@ -33,7 +33,7 @@ class MainView extends StatelessWidget {
             children: [
               kIsWeb && !Responsive.isLargeMobile(context)
                   ? const SizedBox(
-                      height: defaultPadding * 1.5,
+                      height: defaultPadding * 1.2,
                     )
                   : const SizedBox(
                       height: defaultPadding / 1.2,
