@@ -29,10 +29,10 @@ class ProjectGrid extends StatelessWidget {
             : Responsive.isDesktop(context)
                 ? size.aspectRatio * 0.267
                 : Responsive.isTablet(context)
-                    ? size.aspectRatio * 0.58
+                    ? size.aspectRatio * 0.56
                     : Responsive.isMobile(context)
-                        ? 0.89
-                        : size.aspectRatio * 0.60,
+                        ? 0.86
+                        : size.aspectRatio * 0.58,
       ),
       itemBuilder: (context, index) {
         return Obx(
