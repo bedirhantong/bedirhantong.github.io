@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../model/blog_model/blog_model.dart';
 import '../../../res/constants.dart';
 import '../../../viewmodel/getx_controller/experience_controller.dart';
@@ -25,11 +26,11 @@ class _BlogGridState extends State<BlogGrid> {
   Widget build(BuildContext context) {
     final int itemsPerPage = Responsive.isMobile(context)
         ? 4
-        : 4; // Her sayfada kaç öğe görüneceğini belirtin
+        : 5; // Her sayfada kaç öğe görüneceğini belirtin
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.all(30.0),
+          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 30),
           child: TextField(
             controller: searchController,
             decoration: InputDecoration(
@@ -126,7 +127,7 @@ class _BlogGridState extends State<BlogGrid> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(bottom: 65.0),
+          padding: const EdgeInsets.symmetric(vertical: 30.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
@@ -140,16 +141,19 @@ class _BlogGridState extends State<BlogGrid> {
                   );
                 },
                 child: Container(
-                  width: 12.0,
-                  height: 12.0,
+                  width: 25.0,
+                  height: 25.0,
                   margin: const EdgeInsets.symmetric(
-                    horizontal: 4.0,
+                    horizontal: 7.0,
                   ),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: currentPage == pageIndex
                         ? Colors.deepPurpleAccent // Aktif sayfa rengi
                         : Colors.grey, // Pasif sayfa rengi
+                  ),
+                  child: Center(
+                    child: Text('$pageIndex'),
                   ),
                 ),
               ),
