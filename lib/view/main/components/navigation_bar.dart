@@ -47,6 +47,7 @@ class TopNavigationBar extends StatelessWidget {
               activeColor: Colors.blueGrey,
               inactiveTrackColor: Colors.amberAccent.shade700,
               inactiveThumbColor: Colors.transparent,
+              mouseCursor: MaterialStateMouseCursor.clickable,
               activeThumbImage: const AssetImage('assets/images/moon.png'),
               inactiveThumbImage: const AssetImage('assets/images/sun.png'),
             ),

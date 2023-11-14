@@ -30,25 +30,28 @@ class BlogView extends StatelessWidget {
         ),
         height: double.infinity,
         padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-        child: const Center(
-          child: Expanded(
-            child: Responsive(
-              desktop: BlogGrid(
-                crossAxisCount: 1,
-                ratio: 1.2,
-              ),
-              extraLargeScreen: BlogGrid(
-                crossAxisCount: 1,
-                ratio: 1.6,
-              ),
-              largeMobile: BlogGrid(crossAxisCount: 1, ratio: 1.8),
-              mobile: BlogGrid(crossAxisCount: 1, ratio: 1.5),
-              tablet: BlogGrid(
-                ratio: 1.4,
-                crossAxisCount: 1,
+        child: const Column(
+          // Wrap with Column
+          children: [
+            Expanded(
+              child: Responsive(
+                desktop: BlogGrid(
+                  crossAxisCount: 1,
+                  ratio: 1.2,
+                ),
+                extraLargeScreen: BlogGrid(
+                  crossAxisCount: 1,
+                  ratio: 1.6,
+                ),
+                largeMobile: BlogGrid(crossAxisCount: 1, ratio: 1.8),
+                mobile: BlogGrid(crossAxisCount: 1, ratio: 1.5),
+                tablet: BlogGrid(
+                  ratio: 1.4,
+                  crossAxisCount: 1,
+                ),
               ),
             ),
-          ),
+          ],
         ),
       ),
     );
